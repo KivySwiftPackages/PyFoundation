@@ -1,8 +1,6 @@
 
 import UIKit
 import PySerializing
-import PythonCore
-import PySwiftObject
 import PySwiftKit
 import PySwiftWrapper
 
@@ -52,10 +50,8 @@ import PySwiftWrapper
 """)
 extension Progress: PySerializing.PySerialize {
     
-    
-    
-    public var pyPointer: PyPointer {
-        return .None
+    func pyPointer() -> PyPointer {
+        .None
     }
 }
 
@@ -95,7 +91,8 @@ extension NSItemProvider: PySerializing.PySerialize {
         registerDataRepresentation(forTypeIdentifier: typeIdentifier, visibility: visibility, loadHandler: loader)
     }
     
-    public var pyPointer: PyPointer {
-        Self.asPyPointer(self)
+    public func pyPointer() -> PyPointer {
+        self.asPyPointer(self
     }
+    
 }
