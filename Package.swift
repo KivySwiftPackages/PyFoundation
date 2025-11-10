@@ -1,4 +1,4 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -17,11 +17,14 @@ let package = Package(
 		.target(
 			name: "PyFoundation",
 			dependencies: [
-                .product(name: "SwiftonizeModules", package: "PySwiftKit"),
+                .product(name: "PySwiftKitBase", package: "PySwiftKit"),
                 //.product(name: "PythonCore", package: "PythonCore"),
 				//"SwiftOpenCV",
 
 			],
+			swiftSettings: [
+                .swiftLanguageMode(.v5)
+            ],
 			plugins: [  ]
 		),
 
